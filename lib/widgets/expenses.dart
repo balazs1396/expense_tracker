@@ -1,3 +1,4 @@
+import 'package:expense_tracker/widgets/chart/chart.dart';
 import 'package:expense_tracker/widgets/expenses_list/expenses_list.dart';
 import 'package:expense_tracker/model/expense.dart';
 import 'package:expense_tracker/widgets/new_expense.dart';
@@ -55,7 +56,6 @@ class _ExpensesState extends State<Expenses> {
       SnackBar(
         duration: Duration(seconds: 3),
         content: Text('Expense deleted!'),
-        backgroundColor: Colors.teal,
         behavior: SnackBarBehavior.floating,
         action: SnackBarAction(
           label: 'Undo',
@@ -92,7 +92,7 @@ class _ExpensesState extends State<Expenses> {
           ),
         ],
       ),
-      body: Column(children: [Text('The cart'), Expanded(child: mainContent)]),
+      body: Column(children: [Chart(expenses: _registeredExpenses), Expanded(child: mainContent)]),
     );
   }
 }
